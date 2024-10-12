@@ -1,4 +1,4 @@
-# Install script for directory: D:/RichiFiles/JavaProjects/MAIS/lab1/TPIS/CoffeeMachine
+# Install script for directory: C:/tpi/TPIS/CoffeeMachine
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,15 +34,15 @@ endif()
 
 # Set path to fallback-tool for dependency-resolution.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "C:/ForInstallation/msys64/mingw64/bin/objdump.exe")
+  set(CMAKE_OBJDUMP "C:/msys64/mingw64/bin/objdump.exe")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "D:/RichiFiles/JavaProjects/MAIS/lab1/TPIS/CoffeeMachine/build/Desktop_Qt_shared_MinGW_w64_MINGW64_MSYS2-Debug/CoffeeMachine.exe")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "C:/tpi/TPIS/CoffeeMachine/build/Desktop_Qt_shared_MinGW_w64_MINGW64_MSYS2-Debug/CoffeeMachine.exe")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/CoffeeMachine.exe" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/CoffeeMachine.exe")
     if(CMAKE_INSTALL_DO_STRIP)
-      execute_process(COMMAND "C:/ForInstallation/msys64/mingw64/bin/strip.exe" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/CoffeeMachine.exe")
+      execute_process(COMMAND "C:/msys64/mingw64/bin/strip.exe" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/CoffeeMachine.exe")
     endif()
   endif()
 endif()
@@ -62,6 +62,6 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-  file(WRITE "D:/RichiFiles/JavaProjects/MAIS/lab1/TPIS/CoffeeMachine/build/Desktop_Qt_shared_MinGW_w64_MINGW64_MSYS2-Debug/${CMAKE_INSTALL_MANIFEST}"
+  file(WRITE "C:/tpi/TPIS/CoffeeMachine/build/Desktop_Qt_shared_MinGW_w64_MINGW64_MSYS2-Debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()
