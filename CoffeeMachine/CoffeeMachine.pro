@@ -10,13 +10,19 @@ CONFIG += c++17
 
 SOURCES += \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    roli.cpp \
+    ystanovka_tsen.cpp
 
 HEADERS += \
-    mainwindow.h
+    mainwindow.h \
+    roli.h \
+    ystanovka_tsen.h
 
 FORMS += \
-    mainwindow.ui
+    mainwindow.ui \
+    roli.ui \
+    ystanovka_tsen.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
