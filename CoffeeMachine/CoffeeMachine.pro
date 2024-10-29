@@ -14,21 +14,27 @@ SOURCES += \
     mainwindow.cpp \
     recipepanel.cpp \
     recipeseditor.cpp \
-    servicewindows.cpp
+    servicewindows.cpp \
+    roli.cpp \
+    ystanovka_tsen.cpp    
 
 HEADERS += \
     choosingservice.h \
     mainwindow.h \
     recipepanel.h \
     recipeseditor.h \
-    servicewindows.h
+    servicewindows.h \
+    roli.h \
+    ystanovka_tsen.h
 
 FORMS += \
     choosingservice.ui \
     mainwindow.ui \
     recipepanel.ui \
     recipeseditor.ui \
-    servicewindows.ui
+    servicewindows.ui \
+    roli.ui \
+    ystanovka_tsen.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
