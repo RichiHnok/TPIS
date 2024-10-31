@@ -24,6 +24,8 @@ private slots:
     void on_pushButton_3_clicked();
     void on_openServiceButton_clicked();
 
+    void on_openClientButton_clicked();
+
 private:
     Ui::Roli *ui;
     Mediator* mediator;

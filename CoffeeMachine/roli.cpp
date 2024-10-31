@@ -33,3 +33,9 @@ void Roli::on_openServiceButton_clicked()
     mediator->openWindowChoosingService();
 }
 
+
+void Roli::on_openClientButton_clicked()
+{
+    mediator->openWindowCoffee();
+}
+

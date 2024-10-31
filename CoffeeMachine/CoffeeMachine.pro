@@ -13,7 +13,6 @@ SOURCES += \
     coffee.cpp \
     form.cpp \
     main.cpp \
-    mainwindow.cpp \
     mediator.cpp \
     ordershistory.cpp \
     products.cpp \
@@ -24,7 +23,6 @@ SOURCES += \
 
 HEADERS += \
     choosingservice.h \
-    mainwindow.h \
     mediator.h \
     ordershistory.h \
     products.h \
@@ -37,7 +35,6 @@ HEADERS += \
 
 FORMS += \
     choosingservice.ui \
-    mainwindow.ui \
     ordershistory.ui \
     products.ui \
     recipepanel.ui \

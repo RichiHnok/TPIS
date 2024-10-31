@@ -7,6 +7,7 @@
 #include "ystanovka_tsen.h"
 #include "recipeseditor.h"
 #include "ordershistory.h"
+#include "form.h"
 #include <iostream>
 
 #include <QWidget>
@@ -17,6 +18,7 @@ class Products;
 class Ystanovka_tsen;
 class RecipesEditor;
 class OrdersHistory;
+class Form;
 
 class Mediator
 {
@@ -41,6 +43,9 @@ public:
     void setOrdersHistory(OrdersHistory* ordersHistory);
     void openWindowOrdersHistory();
     void closeWindowOrdersHistory();
+    void setForm(Form* form);
+    void openWindowCoffee();
+    void closeWindowCoffee();
 
 signals:
 
@@ -51,6 +56,7 @@ private:
     Ystanovka_tsen *priceSettingW;
     RecipesEditor *recipesEditorW;
     OrdersHistory *ordersHistoryW;
+    Form *formW;
 };
 
 #endif // MEDIATOR_H
