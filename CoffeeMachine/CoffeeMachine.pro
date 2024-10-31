@@ -10,6 +10,8 @@ CONFIG += c++17
 
 SOURCES += \
     choosingservice.cpp \
+    coffee.cpp \
+    form.cpp \
     main.cpp \
     mainwindow.cpp \
     mediator.cpp \
@@ -29,6 +31,8 @@ HEADERS += \
     recipepanel.h \
     recipeseditor.h \
     roli.h \
+    coffee.h \
+    form.h \
     ystanovka_tsen.h
 
 FORMS += \
@@ -39,7 +43,10 @@ FORMS += \
     recipepanel.ui \
     recipeseditor.ui \
     roli.ui \
-    ystanovka_tsen.ui
+    ystanovka_tsen.ui \
+    coffee.ui \
+    form.ui
+    
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
