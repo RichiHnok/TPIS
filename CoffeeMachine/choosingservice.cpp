@@ -30,3 +30,9 @@ void ChoosingService::on_goToRefillingProductsButton_clicked()
     mediator->openWindowProducts();
 }
 
+
+void ChoosingService::on_goToSettingPricesButton_clicked()
+{
+    mediator->openWindowPriceSetting();
+}
+

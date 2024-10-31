@@ -4,6 +4,7 @@
 Products::Products(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::Products)
+    , mediator(nullptr)
 {
     ui->setupUi(this);
 }

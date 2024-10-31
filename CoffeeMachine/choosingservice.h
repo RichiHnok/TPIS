@@ -24,6 +24,8 @@ private slots:
 
     void on_goToRefillingProductsButton_clicked();
 
+    void on_goToSettingPricesButton_clicked();
+
 private:
     Ui::ChoosingService *ui;
     Mediator* mediator;

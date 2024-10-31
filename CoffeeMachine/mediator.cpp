@@ -11,7 +11,8 @@ using namespace std;
 Mediator::Mediator() :
     roliW(nullptr),
     choosingServiceW(nullptr),
-    productsW(nullptr)
+    productsW(nullptr),
+    priceSettingW(nullptr)
 {
     cout<<"Mediator's constructor launched"<<endl;
     openWindowRoli();
@@ -47,6 +48,9 @@ void Mediator::openWindowChoosingService(){
     if(productsW != nullptr){
         closeWindowProducts();
     }
+    if(priceSettingW != nullptr){
+        closeWindowPriceSetting();
+    }
     setChoosingService(new ChoosingService);
     choosingServiceW->setMediator(this);
     choosingServiceW->show();
@@ -73,6 +77,23 @@ void Mediator::closeWindowProducts(){
     productsW->setAttribute(Qt::WA_DeleteOnClose, true);
     productsW->close();
     productsW = nullptr;
+}
+
+void Mediator::setPriceSetting(Ystanovka_tsen *priceSetting){
+    this->priceSettingW = priceSetting;
+}
+
+void Mediator::openWindowPriceSetting(){
+    closeWindowChoosingService();
+    setPriceSetting(new Ystanovka_tsen);
+    priceSettingW->setMediator(this);
+    priceSettingW->show();
+}
+
+void Mediator::closeWindowPriceSetting(){
+    priceSettingW->setAttribute(Qt::WA_DeleteOnClose, true);
+    priceSettingW->close();
+    priceSettingW = nullptr;
 }
 
 void Mediator::printSmth(){
