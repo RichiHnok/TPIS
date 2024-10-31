@@ -1,11 +1,14 @@
 #ifndef CHOOSINGSERVICE_H
 #define CHOOSINGSERVICE_H
 
+#include "mediator.h"
 #include <QWidget>
 
 namespace Ui {
 class ChoosingService;
 }
+
+class Mediator;
 
 class ChoosingService : public QWidget
 {
@@ -13,10 +16,15 @@ class ChoosingService : public QWidget
 
 public:
     explicit ChoosingService(QWidget *parent = nullptr);
+    void setMediator(Mediator* mediator);
     ~ChoosingService();
+
+private slots:
+    void on_backToChoosingRoleButton_clicked();
 
 private:
     Ui::ChoosingService *ui;
+    Mediator* mediator;
 };
 
 #endif // CHOOSINGSERVICE_H

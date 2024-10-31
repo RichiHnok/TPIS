@@ -12,27 +12,29 @@ SOURCES += \
     choosingservice.cpp \
     main.cpp \
     mainwindow.cpp \
+    mediator.cpp \
+    productswindow.cpp \
     recipepanel.cpp \
     recipeseditor.cpp \
-    servicewindows.cpp \
     roli.cpp \
     ystanovka_tsen.cpp    
 
 HEADERS += \
     choosingservice.h \
     mainwindow.h \
+    mediator.h \
+    productswindow.h \
     recipepanel.h \
     recipeseditor.h \
-    servicewindows.h \
     roli.h \
     ystanovka_tsen.h
 
 FORMS += \
     choosingservice.ui \
     mainwindow.ui \
+    productswindow.ui \
     recipepanel.ui \
     recipeseditor.ui \
-    servicewindows.ui \
     roli.ui \
     ystanovka_tsen.ui
 

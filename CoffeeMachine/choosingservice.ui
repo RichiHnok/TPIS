@@ -29,7 +29,7 @@
    <item>
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
-      <widget class="QPushButton" name="pushButton_3">
+      <widget class="QPushButton" name="backToChoosingRoleButton">
        <property name="text">
         <string>Вернуться к выбору роли</string>
        </property>
@@ -49,28 +49,28 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_2">
+      <widget class="QPushButton" name="goToRefillingProductsButton">
        <property name="text">
-        <string>Пополнение ингридиентов</string>
+        <string>Пополнение ингредиентов</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton">
+      <widget class="QPushButton" name="goToOrderHistoryButton">
        <property name="text">
         <string>Просмотр истории заказов</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_4">
+      <widget class="QPushButton" name="goToRecipeEditorButton">
        <property name="text">
         <string>Редактирование рецептов</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_5">
+      <widget class="QPushButton" name="goToSettingPricesButton">
        <property name="text">
         <string>Установка цен</string>
        </property>

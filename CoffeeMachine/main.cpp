@@ -1,12 +1,17 @@
 #include "mainwindow.h"
-#include "recipeseditor.h"
+#include "mediator.h"
 
 #include <QApplication>
+
+#include <iostream>
+
+using namespace std;
+
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    RecipesEditor w;
-    w.show();
+    cout<<"Program started"<<endl;
+    Mediator mediator;
     return a.exec();
 }

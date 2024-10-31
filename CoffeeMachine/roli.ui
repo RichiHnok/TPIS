@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="openServiceButton">
    <property name="geometry">
     <rect>
      <x>90</x>
@@ -26,7 +26,7 @@
     <string>Обслужевание кофемашины</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_2">
+  <widget class="QPushButton" name="openClientButton">
    <property name="geometry">
     <rect>
      <x>90</x>
@@ -52,7 +52,7 @@
     <string>Индикатор</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_4">
+  <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
      <x>0</x>
@@ -76,10 +76,10 @@
    </property>
   </widget>
   <zorder>listView</zorder>
-  <zorder>pushButton</zorder>
-  <zorder>pushButton_2</zorder>
+  <zorder>openServiceButton</zorder>
+  <zorder>openClientButton</zorder>
   <zorder>pushButton_3</zorder>
-  <zorder>pushButton_4</zorder>
+  <zorder>pushButton</zorder>
  </widget>
  <resources/>
  <connections/>
