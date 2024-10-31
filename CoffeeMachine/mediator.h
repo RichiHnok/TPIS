@@ -5,6 +5,7 @@
 #include "choosingservice.h"
 #include "products.h"
 #include "ystanovka_tsen.h"
+#include "recipeseditor.h"
 #include <iostream>
 
 #include <QWidget>
@@ -13,6 +14,7 @@ class Roli;
 class ChoosingService;
 class Products;
 class Ystanovka_tsen;
+class RecipesEditor;
 
 class Mediator
 {
@@ -31,6 +33,9 @@ public:
     void setPriceSetting(Ystanovka_tsen* priceSetting);
     void openWindowPriceSetting();
     void closeWindowPriceSetting();
+    void setRecipesEditor(RecipesEditor* recipesEditor);
+    void openWindowRecipesEditor();
+    void closeWindowRecipesEditor();
 
 signals:
 
@@ -39,6 +44,7 @@ private:
     ChoosingService *choosingServiceW;
     Products *productsW;
     Ystanovka_tsen *priceSettingW;
+    RecipesEditor *recipesEditorW;
 };
 
 #endif // MEDIATOR_H

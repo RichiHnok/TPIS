@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QVector>
 #include "recipepanel.h"
+#include "mediator.h"
 
 namespace Ui {
 class RecipesEditor;
@@ -18,13 +19,17 @@ public:
     ~RecipesEditor();
     int recipesNumberTotal;
     // QVector<RecipePanel *> allRecipesPtr;
+    void setMediator(Mediator* mediator);
 
 private slots:
     void on_addNewRecipeButton_clicked();
     void addNewRecipe();
 
+    void on_backToChoosingServiceButton_clicked();
+
 private:
     Ui::RecipesEditor *ui;
+    Mediator* mediator;
 };
 
 #endif // RECIPESEDITOR_H

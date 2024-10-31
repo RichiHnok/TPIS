@@ -26,6 +26,8 @@ private slots:
 
     void on_goToSettingPricesButton_clicked();
 
+    void on_goToRecipesEditorButton_clicked();
+
 private:
     Ui::ChoosingService *ui;
     Mediator* mediator;

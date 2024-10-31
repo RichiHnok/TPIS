@@ -8,14 +8,19 @@
 RecipesEditor::RecipesEditor(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::RecipesEditor)
+    , mediator(nullptr)
 {
     ui->setupUi(this);
-    recipesNumberTotal = 0;
+    // recipesNumberTotal = 0;
 }
 
 RecipesEditor::~RecipesEditor()
 {
     delete ui;
+}
+
+void RecipesEditor::setMediator(Mediator *mediator){
+    this->mediator=mediator;
 }
 
 
@@ -38,5 +43,8 @@ void RecipesEditor::addNewRecipe()
     // allRecipesPtr.append(newPanel);
 }
 
-
+void RecipesEditor::on_backToChoosingServiceButton_clicked()
+{
+    mediator->openWindowChoosingService();
+}
 

@@ -36,3 +36,9 @@ void ChoosingService::on_goToSettingPricesButton_clicked()
     mediator->openWindowPriceSetting();
 }
 
+
+void ChoosingService::on_goToRecipesEditorButton_clicked()
+{
+    mediator->openWindowRecipesEditor();
+}
+
