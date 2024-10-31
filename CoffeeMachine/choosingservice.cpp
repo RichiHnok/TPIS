@@ -42,3 +42,9 @@ void ChoosingService::on_goToRecipesEditorButton_clicked()
     mediator->openWindowRecipesEditor();
 }
 
+
+void ChoosingService::on_goToOrderHistoryButton_clicked()
+{
+    mediator->openWindowOrdersHistory();
+}
+

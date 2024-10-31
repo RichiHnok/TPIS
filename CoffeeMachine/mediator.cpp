@@ -13,7 +13,8 @@ Mediator::Mediator() :
     choosingServiceW(nullptr),
     productsW(nullptr),
     priceSettingW(nullptr),
-    recipesEditorW(nullptr)
+    recipesEditorW(nullptr),
+    ordersHistoryW(nullptr)
 {
     cout<<"Mediator's constructor launched"<<endl;
     openWindowRoli();
@@ -54,6 +55,9 @@ void Mediator::openWindowChoosingService(){
     }
     if(recipesEditorW != nullptr){
         closeWindowRecipesEditor();
+    }
+    if(ordersHistoryW != nullptr){
+        closeWindowOrdersHistory();
     }
     setChoosingService(new ChoosingService);
     choosingServiceW->setMediator(this);
@@ -115,6 +119,23 @@ void Mediator::closeWindowRecipesEditor(){
     recipesEditorW->setAttribute(Qt::WA_DeleteOnClose, true);
     recipesEditorW->close();
     recipesEditorW = nullptr;
+}
+
+void Mediator::setOrdersHistory(OrdersHistory *ordersHistory){
+    this->ordersHistoryW = ordersHistory;
+}
+
+void Mediator::openWindowOrdersHistory(){
+    closeWindowChoosingService();
+    setOrdersHistory(new OrdersHistory);
+    ordersHistoryW->setMediator(this);
+    ordersHistoryW->show();
+}
+
+void Mediator::closeWindowOrdersHistory(){
+    ordersHistoryW->setAttribute(Qt::WA_DeleteOnClose, true);
+    ordersHistoryW->close();
+    ordersHistoryW = nullptr;
 }
 
 void Mediator::printSmth(){
