@@ -1,6 +1,3 @@
-#include "mainwindow.h"
-#include "recipeseditor.h"
-#include "roli.h"
 #include "mediator.h"
 
 #include <iostream>
@@ -13,7 +10,8 @@ using namespace std;
 
 Mediator::Mediator() :
     roliW(nullptr),
-    choosingServiceW(nullptr)
+    choosingServiceW(nullptr),
+    productsW(nullptr)
 {
     cout<<"Mediator's constructor launched"<<endl;
     openWindowRoli();
@@ -21,10 +19,6 @@ Mediator::Mediator() :
 
 void Mediator::setRoli(Roli* roliW){
     this->roliW=roliW;
-}
-
-void Mediator::setChoosingService(ChoosingService *choosingService){
-    this->choosingServiceW=choosingService;
 }
 
 void Mediator::openWindowRoli(){
@@ -42,9 +36,16 @@ void Mediator::closeWindowRoli(){
     roliW = nullptr;
 }
 
+void Mediator::setChoosingService(ChoosingService *choosingService){
+    this->choosingServiceW=choosingService;
+}
+
 void Mediator::openWindowChoosingService(){
     if(roliW != nullptr){
         closeWindowRoli();
+    }
+    if(productsW != nullptr){
+        closeWindowProducts();
     }
     setChoosingService(new ChoosingService);
     choosingServiceW->setMediator(this);
@@ -55,6 +56,23 @@ void Mediator::closeWindowChoosingService(){
     choosingServiceW->setAttribute(Qt::WA_DeleteOnClose, true);
     choosingServiceW->close();
     choosingServiceW = nullptr;
+}
+
+void Mediator::setProducts(Products *products){
+    this->productsW = products;
+}
+
+void Mediator::openWindowProducts(){
+    closeWindowChoosingService();
+    setProducts(new Products);
+    productsW->setMediator(this);
+    productsW->show();
+}
+
+void Mediator::closeWindowProducts(){
+    productsW->setAttribute(Qt::WA_DeleteOnClose, true);
+    productsW->close();
+    productsW = nullptr;
 }
 
 void Mediator::printSmth(){

@@ -13,7 +13,7 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     mediator.cpp \
-    productswindow.cpp \
+    products.cpp \
     recipepanel.cpp \
     recipeseditor.cpp \
     roli.cpp \
@@ -23,7 +23,7 @@ HEADERS += \
     choosingservice.h \
     mainwindow.h \
     mediator.h \
-    productswindow.h \
+    products.h \
     recipepanel.h \
     recipeseditor.h \
     roli.h \
@@ -32,7 +32,7 @@ HEADERS += \
 FORMS += \
     choosingservice.ui \
     mainwindow.ui \
-    productswindow.ui \
+    products.ui \
     recipepanel.ui \
     recipeseditor.ui \
     roli.ui \

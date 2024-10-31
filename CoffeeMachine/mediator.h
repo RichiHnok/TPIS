@@ -3,12 +3,14 @@
 
 #include "roli.h"
 #include "choosingservice.h"
+#include "products.h"
 #include <iostream>
 
 #include <QWidget>
 
 class Roli;
 class ChoosingService;
+class Products;
 
 class Mediator
 {
@@ -21,14 +23,16 @@ public:
     void setChoosingService(ChoosingService* choosingService);
     void openWindowChoosingService();
     void closeWindowChoosingService();
-    // void set
+    void setProducts(Products* products);
+    void openWindowProducts();
+    void closeWindowProducts();
 
 signals:
 
 private:
     Roli *roliW;
     ChoosingService *choosingServiceW;
-    // ChoosingService *choosingserviceW;
+    Products *productsW;
 };
 
 #endif // MEDIATOR_H
