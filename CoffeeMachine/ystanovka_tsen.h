@@ -2,21 +2,26 @@
 #define YSTANOVKA_TSEN_H
 
 #include <QWidget>
-
-namespace Ui {
-class Ystanovka_tsen;
-}
+#include "ui_Ystanovka_tsen.h"  // Подключаем автоматически сгенерированный файл
 
 class Ystanovka_tsen : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit Ystanovka_tsen(QWidget *parent = nullptr);
-    ~Ystanovka_tsen();
+    Ystanovka_tsen(QWidget* parent = nullptr) : QWidget(parent), ui(new Ui::Ystanovka_tsen) {
+        ui->setupUi(this);
+    }
 
-private:
-    Ui::Ystanovka_tsen *ui;
+    ~Ystanovka_tsen() {
+        delete ui;
+    }
+
+    Ui::Ystanovka_tsen* ui;
+
+private slots:
+    void on_pushButton_clicked();   // Установка цен
+    void on_pushButton_2_clicked(); // Вернуться к обслуживанию
 };
 
 #endif // YSTANOVKA_TSEN_H

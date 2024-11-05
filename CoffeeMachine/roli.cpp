@@ -1,14 +1,18 @@
 #include "roli.h"
-#include "ui_roli.h"
+#include <QDebug>
 
-Roli::Roli(QWidget *parent)
-    : QWidget(parent)
-    , ui(new Ui::Roli)
-{
-    ui->setupUi(this);
+void Roli::on_pushButton_clicked() {
+    qDebug() << "Кнопка 'Обслужевание кофемашины' нажата";
 }
 
-Roli::~Roli()
-{
-    delete ui;
+void Roli::on_pushButton_2_clicked() {
+    qDebug() << "Кнопка 'Клиент' нажата";
+}
+
+void Roli::on_pushButton_3_clicked() {
+    qDebug() << "Кнопка 'Индикатор' нажата";
+}
+
+void Roli::on_pushButton_4_clicked() {
+    qDebug() << "Кнопка 'Окно выбора роли' нажата";
 }

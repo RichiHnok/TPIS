@@ -1,14 +1,10 @@
 #include "ystanovka_tsen.h"
-#include "ui_ystanovka_tsen.h"
+#include <QDebug>
 
-Ystanovka_tsen::Ystanovka_tsen(QWidget *parent)
-    : QWidget(parent)
-    , ui(new Ui::Ystanovka_tsen)
-{
-    ui->setupUi(this);
+void Ystanovka_tsen::on_pushButton_clicked() {
+    qDebug() << "Кнопка 'Установка цен' нажата";
 }
 
-Ystanovka_tsen::~Ystanovka_tsen()
-{
-    delete ui;
+void Ystanovka_tsen::on_pushButton_2_clicked() {
+    qDebug() << "Кнопка 'Вернуться к обслуживанию' нажата";
 }
