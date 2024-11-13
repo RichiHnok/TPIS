@@ -1,6 +1,9 @@
 #include "mediator.h"
 
+#include "order.h"
 #include <iostream>
+#include <QString>
+#include <QVariant>
 
 using namespace std;
 // Замечания
@@ -15,10 +18,190 @@ Mediator::Mediator() :
     priceSettingW(nullptr),
     recipesEditorW(nullptr),
     ordersHistoryW(nullptr),
-    formW(nullptr)
+    formW(nullptr),
+    dbManager(nullptr)
 {
     cout<<"Mediator's constructor launched"<<endl;
+    createDatabaseConnection();
     openWindowRoli();
+}
+
+void Mediator::createDatabaseConnection(){
+    this->dbManager = new DatabaseManager;
+    dbManager->openDatabase();
+}
+
+void Mediator::closeDatabaseConnection(){
+    dbManager->closeDatabase();
+    dbManager = (nullptr);
+}
+
+void Mediator::putOrder(Order order){
+    //TODO Можно исправить испульзуя у query мутоды prepare и bindValues
+    QString queryText = QString("insert into orders (recipe_id, date, size, sugar_amount, total_price) values (%1, %2, %3, %4, %5)")
+                            .arg(order.recipe_id)
+                            .arg(order.dateTime.toString("hh:mm:ss dd.MM.yyyy"))
+                            .arg(order.drinkSize)
+                            .arg(order.sugarAmount)
+                            .arg(order.totalPrice);
+    QSqlQuery query;
+    if (!query.exec(queryText)) {
+        qDebug() << "Ошибка выполнения запроса:" << query.lastError().text();
+        return;
+    }
+
+}
+
+void Mediator::getOrder(){
+
+}
+
+QVector<Order> Mediator::getAllOrders(){
+    QString timeFormat = "hh:mm:ss dd.MM.yyyy";
+    QString queryText = "SELECT * FROM orders";
+    QSqlQuery query;
+    if (!query.exec(queryText)) {
+        qDebug() << "Ошибка выполнения запроса:" << query.lastError().text();
+        throw std::invalid_argument( "something went wrong");
+    }
+    QVector<Order> ordersList;
+
+    //TODO Сделать создание рецептов и запихивание их в список
+    while (query.next()) {
+        int id = query.value(0).toInt();
+        int recipe_id = query.value(1).toInt(); //TODO Сделать подстановку названия напитка
+        // qDebug() << query.value(2);
+        // qDebug() << query.value(2).toString();
+        // qDebug() << QDateTime::fromString(query.value(2).toString(), timeFormat);
+        // QDateTime dateTime = query.value(2).to;
+        QDateTime dateTime = QDateTime::fromString(query.value(2).toString(), timeFormat);
+        int drinkSize = query.value(3).toInt();
+        int sugarAmount = query.value(4).toInt();
+        double totalPrice = query.value(5).toDouble();
+
+        Order tempOrder;
+        tempOrder.id = id;
+        tempOrder.recipe_id = recipe_id;
+        tempOrder.dateTime = dateTime;
+        // qDebug() << tempOrder.dateTime;
+        // qDebug() << tempOrder.dateTime.toString();
+        tempOrder.drinkSize = drinkSize;
+        tempOrder.sugarAmount = sugarAmount;
+        tempOrder.totalPrice = totalPrice;
+
+        ordersList.append(tempOrder);
+    }
+    // qDebug() << 1;
+    return ordersList;
+}
+
+Recipe Mediator::getRecipe(int recipeId){
+    // QString queryText = QString("SELECT * FROM recipes where id = %1").arg(recipeId);
+    // QSqlQuery query;
+    // if (!query.exec(queryText)) {
+    //     qDebug() << "Ошибка выполнения запроса:" << query.lastError().text();
+    //     throw std::invalid_argument( "something went wrong");
+    // }
+    Recipe res;
+    // res.id = query.value(0);
+    return res;
+}
+
+QString Mediator::getRecipeName(int recipeId){
+    QString queryText = QString("SELECT name FROM recipes where id = %1").arg(recipeId);
+    QSqlQuery query;
+    if (!query.exec(queryText)) {
+        qDebug() << "Ошибка выполнения запроса:" << query.lastError().text();
+        throw std::invalid_argument( "something went wrong");
+    }
+    // qDebug() << qu;
+    query.next();
+    return query.value(0).toString();
+}
+
+QVector<Recipe> Mediator::getAllRecipes(){
+
+    QString queryText = "SELECT * FROM recipes";
+    QSqlQuery query;
+    if (!query.exec(queryText)) {
+        qDebug() << "Ошибка выполнения запроса:" << query.lastError().text();
+        throw std::invalid_argument( "something went wrong");
+    }
+    QVector<Recipe> recipesList;
+    //TODO Сделать создание рецептов и запихивание их в список
+    while (query.next()) {
+        QString recipeStatus = query.value(7).toString();
+        if(recipeStatus == "removed"){
+            continue;
+        }
+        int id = query.value(0).toInt();
+        QString drinkName = query.value(1).toString();
+        double coffeeAmount = query.value(2).toDouble();
+        double waterAmount = query.value(3).toDouble();
+        double milkAmount = query.value(4).toDouble();
+        double creamAmount = query.value(5).toDouble();
+        QByteArray byteArray = query.value(6).toByteArray();
+        QImage *drinkImage;
+        drinkImage->loadFromData(byteArray);
+
+        Recipe tempRecipe;
+        tempRecipe.id = id;
+        tempRecipe.drinkName = drinkName;
+        tempRecipe.coffeeAmount = coffeeAmount;
+        tempRecipe.waterAmount = waterAmount;
+        tempRecipe.milkAmount = milkAmount;
+        tempRecipe.creamAmount = creamAmount;
+        tempRecipe.drinkImageData = drinkImage;
+        tempRecipe.recipeStatus = recipeStatus;
+
+        recipesList.append(tempRecipe);
+        // int id = query.value(0).toInt();
+        // QString name = query.value(1).toString();
+        // qDebug() << "ID:" << id << ", Name:" << name;
+    }
+    return recipesList;
+}
+
+void Mediator::putRecipe(Recipe recipe){
+    QString queryText = QString("insert into recipes"
+                        "(name, coffee_amount, water_amount, milk_amount, cream_amount, drink_image, recipe_status) values"
+                        "(%0, %1, %2, %3, %4, :bytes, %5)").
+                        arg(recipe.drinkName).
+                        arg(recipe.coffeeAmount).
+                        arg(recipe.waterAmount).
+                        arg(recipe.milkAmount).
+                        arg(recipe.creamAmount).
+                        arg(recipe.recipeStatus);
+
+    // queryText.arg(recipe.drinkName).arg(recipe.coffeeAmount).arg(recipe.waterAmount).arg(recipe.milkAmount).arg(recipe.creamAmount);
+
+    QSqlQuery query(dbManager->db);
+    query.prepare(queryText);
+    QByteArray byteArrayOfImage;
+    QBuffer buffer(&byteArrayOfImage);
+    buffer.open(QIODevice::WriteOnly);
+    recipe.drinkImageData->save(&buffer, "PNG");
+    query.bindValue(":bytes", byteArrayOfImage);
+
+    // query.prepare("insert into recipes (name, coffee_amount, water_amount, milk_amount, cream_amount, drink_image, recipe_status) values (:name, :coffee_amount, :water_amount, :milk_amount, :cream_amount, :drink_image, :recipe_status)");
+
+    // query.bindValue(":name", recipe.drinkName);
+    // query.bindValue(":coffee_amount", recipe.coffeeAmount);
+    // query.bindValue(":water_amount", recipe.waterAmount);
+    // query.bindValue(":milk_amount", recipe.milkAmount);
+    // query.bindValue(":cream_amount", recipe.creamAmount);
+
+
+
+    query.exec(queryText);
+    return;
+    // query.bindValue(":drink_image", byteArrayOfImage);
+
+    // query.bindValue(":recipe_status", recipe.recipeStatus);
+}
+
+void Mediator::removeRecipe(){
+
 }
 
 void Mediator::setRoli(Roli* roliW){
@@ -134,6 +317,7 @@ void Mediator::openWindowOrdersHistory(){
     setOrdersHistory(new OrdersHistory);
     ordersHistoryW->setMediator(this);
     ordersHistoryW->show();
+    ordersHistoryW->OrdersHistory::fillTable(Mediator::getAllOrders());
 }
 
 void Mediator::closeWindowOrdersHistory(){

@@ -1,4 +1,4 @@
-QT       += core gui
+QT       += core gui sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -11,11 +11,14 @@ CONFIG += c++17
 SOURCES += \
     choosingservice.cpp \
     coffee.cpp \
+    databasemanager.cpp \
     form.cpp \
     main.cpp \
     mediator.cpp \
+    order.cpp \
     ordershistory.cpp \
     products.cpp \
+    recipe.cpp \
     recipepanel.cpp \
     recipeseditor.cpp \
     roli.cpp \
@@ -23,9 +26,12 @@ SOURCES += \
 
 HEADERS += \
     choosingservice.h \
+    databasemanager.h \
     mediator.h \
+    order.h \
     ordershistory.h \
     products.h \
+    recipe.h \
     recipepanel.h \
     recipeseditor.h \
     roli.h \
