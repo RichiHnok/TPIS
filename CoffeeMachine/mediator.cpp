@@ -6,7 +6,7 @@ using namespace std;
 // Замечания
 // Все поля объекта при его создании нужно инициализировать в конструкторе
 // При удалении объекта, удалять его насовсем
-// При создании объекта присваивать в медиаторе соответствующему полю указатель на него, а тому объекту - указатель на медиатор
+// При создании объекта присваивать в медиаторе соответствующему полю указатель на него, а тому объекту - указатель на медиатор /////
 
 Mediator::Mediator() :
     roliW(nullptr),
@@ -19,6 +19,11 @@ Mediator::Mediator() :
 {
     cout<<"Mediator's constructor launched"<<endl;
     openWindowRoli();
+    currentWaterAmount=0;
+    currentCofeAmount=0;
+    currentSugarAmount=0;
+    currentMilkAmount=0;
+    currentSlivkiAmount=0;
 }
 
 void Mediator::setRoli(Roli* roliW){
@@ -83,6 +88,12 @@ void Mediator::openWindowProducts(){
     setProducts(new Products);
     productsW->setMediator(this);
     productsW->show();
+
+    productsW->set_water_current_label(currentWaterAmount);
+    productsW->set_cofe_current_label(currentCofeAmount);
+    productsW->set_sugar_current_label(currentSugarAmount);
+    productsW->set_milk_current_label(currentMilkAmount);
+    productsW->set_slivki_current_label(currentSlivkiAmount);
 }
 
 void Mediator::closeWindowProducts(){

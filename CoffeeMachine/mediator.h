@@ -47,6 +47,17 @@ public:
     void openWindowCoffee();
     void closeWindowCoffee();
 
+    double currentWaterAmount;
+    double currentCofeAmount;
+    double currentSugarAmount;
+    double currentMilkAmount;
+    double currentSlivkiAmount;
+
+    double maxWaterAmount = 10;
+    double maxCofeAmount=2;
+    double maxSugarAmount=2;
+    double maxMilkAmount=5;
+    double maxSlivkiAmount=1;
 signals:
 
 private:
@@ -57,6 +68,7 @@ private:
     RecipesEditor *recipesEditorW;
     OrdersHistory *ordersHistoryW;
     Form *formW;
+
 };
 
 #endif // MEDIATOR_H

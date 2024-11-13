@@ -321,7 +321,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
             <number>0</number>
            </property>
            <item>
-            <widget class="QLabel" name="label_22">
+            <widget class="QLabel" name="water_current_litr_label">
              <property name="minimumSize">
               <size>
                <width>30</width>
@@ -366,7 +366,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
             <number>0</number>
            </property>
            <item>
-            <widget class="QLabel" name="label_8">
+            <widget class="QLabel" name="water_current_amound_persent">
              <property name="minimumSize">
               <size>
                <width>30</width>
@@ -440,7 +440,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
         </spacer>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_4">
+        <widget class="QPushButton" name="refillWaterButton">
          <property name="maximumSize">
           <size>
            <width>90</width>
@@ -505,7 +505,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
             <number>0</number>
            </property>
            <item>
-            <widget class="QLabel" name="label_24">
+            <widget class="QLabel" name="cofe_current_litr_label">
              <property name="minimumSize">
               <size>
                <width>30</width>
@@ -550,7 +550,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
             <number>0</number>
            </property>
            <item>
-            <widget class="QLabel" name="label_11">
+            <widget class="QLabel" name="cofe_current_amound_persent">
              <property name="minimumSize">
               <size>
                <width>30</width>
@@ -624,7 +624,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
         </spacer>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_5">
+        <widget class="QPushButton" name="refillCofeButton">
          <property name="maximumSize">
           <size>
            <width>90</width>
@@ -689,7 +689,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
             <number>0</number>
            </property>
            <item>
-            <widget class="QLabel" name="label_26">
+            <widget class="QLabel" name="sugar_current_litr_label">
              <property name="minimumSize">
               <size>
                <width>30</width>
@@ -734,7 +734,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
             <number>0</number>
            </property>
            <item>
-            <widget class="QLabel" name="label_28">
+            <widget class="QLabel" name="sugar_current_amound_persent">
              <property name="minimumSize">
               <size>
                <width>30</width>
@@ -808,7 +808,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
         </spacer>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_6">
+        <widget class="QPushButton" name="refillSugarButton">
          <property name="maximumSize">
           <size>
            <width>90</width>
@@ -873,7 +873,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
             <number>0</number>
            </property>
            <item>
-            <widget class="QLabel" name="label_31">
+            <widget class="QLabel" name="milk_current_litr_label">
              <property name="minimumSize">
               <size>
                <width>30</width>
@@ -918,7 +918,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
             <number>0</number>
            </property>
            <item>
-            <widget class="QLabel" name="label_14">
+            <widget class="QLabel" name="milk_current_amound_persent">
              <property name="minimumSize">
               <size>
                <width>30</width>
@@ -992,7 +992,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
         </spacer>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_7">
+        <widget class="QPushButton" name="refillMilkButton">
          <property name="maximumSize">
           <size>
            <width>90</width>
@@ -1057,7 +1057,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
             <number>0</number>
            </property>
            <item>
-            <widget class="QLabel" name="label_34">
+            <widget class="QLabel" name="slivki_current_litr_label">
              <property name="minimumSize">
               <size>
                <width>30</width>
@@ -1102,7 +1102,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
             <number>0</number>
            </property>
            <item>
-            <widget class="QLabel" name="label_17">
+            <widget class="QLabel" name="slivki_current_amound_persent">
              <property name="minimumSize">
               <size>
                <width>30</width>
@@ -1176,7 +1176,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
         </spacer>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_8">
+        <widget class="QPushButton" name="refillSlivkiButton">
          <property name="maximumSize">
           <size>
            <width>90</width>
