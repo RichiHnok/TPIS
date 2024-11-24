@@ -8,9 +8,21 @@
 #include "recipeseditor.h"
 #include "ordershistory.h"
 #include "form.h"
+#include "databasemanager.h"
+#include "order.h"
+#include "recipe.h"
 #include <iostream>
 
+#include <QSqlDatabase>
+#include <QSqlQuery>
+#include <QSqlError>
+#include <QSqlDatabase>
+#include <QString>
 #include <QWidget>
+#include <QVector>
+#include <QByteArray>
+#include <QBuffer>
+#include <QIODevice>
 
 class Roli;
 class ChoosingService;
@@ -19,11 +31,23 @@ class Ystanovka_tsen;
 class RecipesEditor;
 class OrdersHistory;
 class Form;
+class DatabaseManager;
 
 class Mediator
 {
 public:
     explicit Mediator();
+    void createDatabaseConnection();
+    void closeDatabaseConnection();
+    void putOrder(Order order); // TODO
+    void getOrder(); // TODO
+    QVector<Order> getAllOrders(); //TODO
+    Recipe getRecipe(int recipeId); // TODO
+    QString getRecipeName(int recipeId);
+    QVector<Recipe> getAllRecipes(); // TODO
+    void putRecipe(Recipe recipe); // TODO
+    void removeRecipe(); // TODO
+
     void printSmth();
     void setRoli(Roli* roli);
     void openWindowRoli();
@@ -68,7 +92,7 @@ private:
     RecipesEditor *recipesEditorW;
     OrdersHistory *ordersHistoryW;
     Form *formW;
-
+    DatabaseManager *dbManager;
 };
 
 #endif // MEDIATOR_H

@@ -24,7 +24,7 @@ void Roli::setMediator(Mediator* mediator){
 
 void Roli::on_pushButton_3_clicked()
 {
-    mediator->closeWindowRoli();
+    // mediator->getRecipes();
 }
 
 
