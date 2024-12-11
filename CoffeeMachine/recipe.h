@@ -10,6 +10,8 @@ public:
     //TODO конструктор
     Recipe();
 
+    QString toString();
+
     int id;
     QString drinkName;
     double coffeeAmount;

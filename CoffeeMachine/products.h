@@ -4,6 +4,9 @@
 
 #include "mediator.h"
 #include <QWidget>
+#include <iostream>
+
+using namespace std;
 
 namespace Ui {
 class Products;
@@ -24,8 +27,6 @@ public:
     int sugar = 0, maxSugar = 2;
     int milk = 0, maxMilk = 5;
     int syrup = 0, maxSyrup = 1;
-
-    void on_backToChoosingServiceWindowButton_clicked();
 
     // Добавляем слоты для обработки нажатия на кнопки "Пополнить"
     void set_water_current_label(double waterAmount);
@@ -50,6 +51,8 @@ private slots:
     void on_refillMilkButton_clicked();
 
     void on_refillSlivkiButton_clicked();
+
+    void on_backToChoosingServiceWindowButton_clicked();
 
 private:
     Ui::Products *ui;

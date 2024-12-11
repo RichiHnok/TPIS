@@ -29,6 +29,13 @@ Mediator::Mediator() :
     currentSugarAmount=0;
     currentMilkAmount=0;
     currentSlivkiAmount=0;
+
+    qDebug() << 1;
+    recipesList = getAllRecipes();
+    qDebug() << 2;
+    for(int i = 0, n = recipesList.size(); i < n; i++){
+        qDebug() << recipesList[i].toString();
+    }
 }
 
 void Mediator::createDatabaseConnection(){
@@ -135,19 +142,19 @@ QVector<Recipe> Mediator::getAllRecipes(){
     QVector<Recipe> recipesList;
     //TODO Сделать создание рецептов и запихивание их в список
     while (query.next()) {
-        QString recipeStatus = query.value(7).toString();
-        if(recipeStatus == "removed"){
-            continue;
-        }
+    //     QString recipeStatus = query.value(7).toString();
+    //     if(recipeStatus == "removed"){
+    //         continue;
+    //     }
         int id = query.value(0).toInt();
         QString drinkName = query.value(1).toString();
         double coffeeAmount = query.value(2).toDouble();
         double waterAmount = query.value(3).toDouble();
         double milkAmount = query.value(4).toDouble();
         double creamAmount = query.value(5).toDouble();
-        QByteArray byteArray = query.value(6).toByteArray();
-        QImage *drinkImage;
-        drinkImage->loadFromData(byteArray);
+    //     QByteArray byteArray = query.value(6).toByteArray();
+    //     QImage *drinkImage;
+    //     drinkImage->loadFromData(byteArray);
 
         Recipe tempRecipe;
         tempRecipe.id = id;
@@ -156,13 +163,12 @@ QVector<Recipe> Mediator::getAllRecipes(){
         tempRecipe.waterAmount = waterAmount;
         tempRecipe.milkAmount = milkAmount;
         tempRecipe.creamAmount = creamAmount;
-        tempRecipe.drinkImageData = drinkImage;
-        tempRecipe.recipeStatus = recipeStatus;
+        // tempRecipe.drinkImageData = drinkImage;
+    //     tempRecipe.recipeStatus = recipeStatus;
 
         recipesList.append(tempRecipe);
-        // int id = query.value(0).toInt();
-        // QString name = query.value(1).toString();
-        // qDebug() << "ID:" << id << ", Name:" << name;
+    //     // int id = query.value(0).toInt();
+        qDebug() << "ID:" << id << ", Name:" << drinkName;
     }
     return recipesList;
 }
@@ -236,10 +242,12 @@ void Mediator::setChoosingService(ChoosingService *choosingService){
 }
 
 void Mediator::openWindowChoosingService(){
+    cout<<"opening choosing service"<<endl;
     if(roliW != nullptr){
         closeWindowRoli();
     }
     if(productsW != nullptr){
+        cout<<"launching closing of products"<<endl;
         closeWindowProducts();
     }
     if(priceSettingW != nullptr){
@@ -307,9 +315,12 @@ void Mediator::setRecipesEditor(RecipesEditor *recipesEditor){
 }
 
 void Mediator::openWindowRecipesEditor(){
+
     closeWindowChoosingService();
     setRecipesEditor(new RecipesEditor);
     recipesEditorW->setMediator(this);
+
+    recipesEditorW->showRecipes(recipesList);
     recipesEditorW->show();
 }
 
@@ -354,7 +365,22 @@ void Mediator::closeWindowCoffee(){
     formW = nullptr;
 }
 
-void Mediator::printSmth(){
-    std::cout<<"test"<<std::endl;
+void Mediator::setCurrentWaterAmount(double newWaterAmount){
+    currentWaterAmount = newWaterAmount;
 }
 
+void Mediator::setCurrentCoffeeAmount(double newCoffeeAmount){
+    currentCofeAmount = newCoffeeAmount;
+}
+
+void Mediator::setCurrentSugarAmount(double newSugarAmount){
+    currentSugarAmount = newSugarAmount;
+}
+
+void Mediator::setCurrentMilkAmount(double newMilkAmount){
+    currentMilkAmount = newMilkAmount;
+}
+
+void Mediator::setCurrentSlivkiAmount(double newSlivkiAmount){
+    currentSlivkiAmount = newSlivkiAmount;
+}

@@ -11,6 +11,7 @@
 #include "databasemanager.h"
 #include "order.h"
 #include "recipe.h"
+#include "recipepanel.h"
 #include <iostream>
 
 #include <QSqlDatabase>
@@ -71,6 +72,12 @@ public:
     void openWindowCoffee();
     void closeWindowCoffee();
 
+    void setCurrentWaterAmount(double newWaterAmount);
+    void setCurrentCoffeeAmount(double newCoffeeAmount);
+    void setCurrentSugarAmount(double newSugarAmount);
+    void setCurrentMilkAmount(double newMilkAmount);
+    void setCurrentSlivkiAmount(double newSlivkiAmount);
+
     double currentWaterAmount;
     double currentCofeAmount;
     double currentSugarAmount;
@@ -82,6 +89,8 @@ public:
     double maxSugarAmount=2;
     double maxMilkAmount=5;
     double maxSlivkiAmount=1;
+
+    QVector<Recipe> recipesList;
 signals:
 
 private:

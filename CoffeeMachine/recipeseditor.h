@@ -18,14 +18,20 @@ public:
     explicit RecipesEditor(QWidget *parent = nullptr);
     ~RecipesEditor();
     int recipesNumberTotal;
-    // QVector<RecipePanel *> allRecipesPtr;
     void setMediator(Mediator* mediator);
+    void addNewRecipe();
+    void showRecipes(QVector<Recipe> recipesList);
+
+    QVector<RecipePanel*> allRecipes;
 
 private slots:
     void on_addNewRecipeButton_clicked();
-    void addNewRecipe();
+
 
     void on_backToChoosingServiceButton_clicked();
+
+public slots:
+    void closeRecipe(int);
 
 private:
     Ui::RecipesEditor *ui;

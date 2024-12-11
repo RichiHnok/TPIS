@@ -17,17 +17,17 @@
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
-      <widget class="QPlainTextEdit" name="plainTextEdit">
+      <widget class="QTextEdit" name="drinkNameTextField">
        <property name="maximumSize">
         <size>
-         <width>400</width>
+         <width>450</width>
          <height>35</height>
         </size>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_4">
+      <widget class="QPushButton" name="deleteRecipeButton">
        <property name="maximumSize">
         <size>
          <width>100</width>
@@ -35,7 +35,7 @@
         </size>
        </property>
        <property name="text">
-        <string>PushButton</string>
+        <string>Удалить</string>
        </property>
       </widget>
      </item>
@@ -74,7 +74,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_2">
+        <widget class="QPushButton" name="addImageButton">
          <property name="maximumSize">
           <size>
            <width>90</width>
@@ -82,7 +82,7 @@
           </size>
          </property>
          <property name="text">
-          <string>PushButton</string>
+          <string>Set Image</string>
          </property>
         </widget>
        </item>
@@ -91,9 +91,9 @@
      <item>
       <layout class="QGridLayout" name="gridLayout">
        <item row="2" column="0">
-        <widget class="QPushButton" name="pushButton_3">
+        <widget class="QPushButton" name="saveRecipeButton">
          <property name="text">
-          <string>PushButton</string>
+          <string>Сохранить</string>
          </property>
         </widget>
        </item>
@@ -101,6 +101,12 @@
         <layout class="QHBoxLayout" name="horizontalLayout_6">
          <item>
           <widget class="QLabel" name="label_12">
+           <property name="minimumSize">
+            <size>
+             <width>70</width>
+             <height>0</height>
+            </size>
+           </property>
            <property name="maximumSize">
             <size>
              <width>75</width>
@@ -111,12 +117,12 @@
             <enum>QFrame::Shape::Box</enum>
            </property>
            <property name="text">
-            <string>Вода</string>
+            <string>Молоко</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QTextEdit" name="textEdit_7">
+          <widget class="QTextEdit" name="milkAmountTextField">
            <property name="maximumSize">
             <size>
              <width>150</width>
@@ -127,6 +133,12 @@
          </item>
          <item>
           <widget class="QLabel" name="label_13">
+           <property name="minimumSize">
+            <size>
+             <width>30</width>
+             <height>0</height>
+            </size>
+           </property>
            <property name="maximumSize">
             <size>
              <width>50</width>
@@ -142,50 +154,58 @@
           </widget>
          </item>
          <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_8">
-           <item>
-            <widget class="QLabel" name="label_16">
-             <property name="maximumSize">
-              <size>
-               <width>75</width>
-               <height>35</height>
-              </size>
-             </property>
-             <property name="frameShape">
-              <enum>QFrame::Shape::Box</enum>
-             </property>
-             <property name="text">
-              <string>Вода</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QTextEdit" name="textEdit_9">
-             <property name="maximumSize">
-              <size>
-               <width>150</width>
-               <height>35</height>
-              </size>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="label_17">
-             <property name="maximumSize">
-              <size>
-               <width>50</width>
-               <height>35</height>
-              </size>
-             </property>
-             <property name="frameShape">
-              <enum>QFrame::Shape::Box</enum>
-             </property>
-             <property name="text">
-              <string>мл</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
+          <widget class="QLabel" name="label_16">
+           <property name="minimumSize">
+            <size>
+             <width>70</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>75</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::Shape::Box</enum>
+           </property>
+           <property name="text">
+            <string>Сливки</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QTextEdit" name="creamAmountTextField">
+           <property name="maximumSize">
+            <size>
+             <width>150</width>
+             <height>35</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_17">
+           <property name="minimumSize">
+            <size>
+             <width>30</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::Shape::Box</enum>
+           </property>
+           <property name="text">
+            <string>мл</string>
+           </property>
+          </widget>
          </item>
         </layout>
        </item>
@@ -193,6 +213,12 @@
         <layout class="QHBoxLayout" name="horizontalLayout_5">
          <item>
           <widget class="QLabel" name="label_10">
+           <property name="minimumSize">
+            <size>
+             <width>70</width>
+             <height>0</height>
+            </size>
+           </property>
            <property name="maximumSize">
             <size>
              <width>75</width>
@@ -208,7 +234,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QTextEdit" name="textEdit_6">
+          <widget class="QTextEdit" name="waterAmountTextField">
            <property name="maximumSize">
             <size>
              <width>150</width>
@@ -219,6 +245,12 @@
          </item>
          <item>
           <widget class="QLabel" name="label_11">
+           <property name="minimumSize">
+            <size>
+             <width>30</width>
+             <height>0</height>
+            </size>
+           </property>
            <property name="maximumSize">
             <size>
              <width>50</width>
@@ -234,50 +266,58 @@
           </widget>
          </item>
          <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_7">
-           <item>
-            <widget class="QLabel" name="label_14">
-             <property name="maximumSize">
-              <size>
-               <width>75</width>
-               <height>35</height>
-              </size>
-             </property>
-             <property name="frameShape">
-              <enum>QFrame::Shape::Box</enum>
-             </property>
-             <property name="text">
-              <string>Вода</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QTextEdit" name="textEdit_8">
-             <property name="maximumSize">
-              <size>
-               <width>150</width>
-               <height>35</height>
-              </size>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="label_15">
-             <property name="maximumSize">
-              <size>
-               <width>50</width>
-               <height>35</height>
-              </size>
-             </property>
-             <property name="frameShape">
-              <enum>QFrame::Shape::Box</enum>
-             </property>
-             <property name="text">
-              <string>мл</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
+          <widget class="QLabel" name="label_14">
+           <property name="minimumSize">
+            <size>
+             <width>70</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>75</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::Shape::Box</enum>
+           </property>
+           <property name="text">
+            <string>Кофе</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QTextEdit" name="coffeeAmountTextField">
+           <property name="maximumSize">
+            <size>
+             <width>150</width>
+             <height>35</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_15">
+           <property name="minimumSize">
+            <size>
+             <width>30</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::Shape::Box</enum>
+           </property>
+           <property name="text">
+            <string>гр</string>
+           </property>
+          </widget>
          </item>
         </layout>
        </item>
